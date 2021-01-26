@@ -6,7 +6,7 @@ print('●▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬�
 
 
 numero_secreto = round(random.random() * 50)
-total_de_tentativas = 5
+total_de_tentativas = 6
 rodadas = 1
 
 
