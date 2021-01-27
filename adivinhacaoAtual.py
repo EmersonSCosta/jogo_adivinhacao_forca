@@ -5,7 +5,7 @@ print('●▬▬▬▬▬▬▬▬▬▬▬ஜ۩ Emerson Game ۩ஜ▬▬▬▬�
 print('●▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬●')
 
 
-numero_secreto = round(random.random() * 50)
+numero_secreto = random.randrange(1, 51)
 total_de_tentativas = 6
 rodadas = 1
 
