@@ -1,5 +1,5 @@
 import forca
-import adivinhacaoAtual
+import adivinhacao
 
 print('●▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬●')
 print('●▬▬▬▬▬▬▬▬▬ஜ۩ Escolha um Game! ۩ஜ▬▬▬▬▬▬▬▬▬●')
