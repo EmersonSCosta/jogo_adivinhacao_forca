@@ -13,10 +13,10 @@ def escolha_o_game():
     jogo = int(input('Qual Jogo? '))
 
     if(jogo == 1):
-        print('Jogando Forca')
+        print('Jogando Forca.')
         forca.jogar()
     elif(jogo == 2):
-        print('Jogando Adivinhação')
+        print('Jogando Adivinhação.')
         adivinhacao.jogar()
     else:
         print('Jogo não Existe')
