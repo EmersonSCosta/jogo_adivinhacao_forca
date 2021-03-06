@@ -1,35 +1,41 @@
 def jogar():
-
-    print('●▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬●')
-    print('●▬▬▬▬▬▬▬▬▬▬▬▬▬▬ஜ۩ Forca ۩ஜ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬●')
-    print('●▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬●')
-
-    palavra_secreta = 'banana'
-
-    letra_acertou = ['_', '_', '_', '_', '_', '_']
-
+    import random
+    print('●▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬●\n●▬▬▬▬▬▬▬▬▬▬▬▬▬▬ஜ۩ Forca ۩ஜ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬●\n●▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬●')
+    arquivo = open('BD/palavras.txt', 'r')
+    lista_palavras = []
+    for linha in arquivo:
+        linha = linha.strip()
+        lista_palavras.append(linha)
+    arquivo.close()
+    numero = random.randrange(0, len(lista_palavras))
+    palavra_secreta = lista_palavras[numero].upper()
+    letra_acertou = ['_' for x in palavra_secreta]
     enforcou = False
     acertou = False
-
+    palavras_erradas = 0
     print(letra_acertou)
-
     while(not enforcou and not acertou):
-
         chute = input('Qual a letra? ')
-        chute = chute.strip()
-
-        posicao = 0
-        for letra in palavra_secreta:
-            if(chute.upper() == letra.upper()):
-                #print(f'Encontrei a Letra [{letra}] na posição [{posicao}]')
-                letra_acertou[posicao] = letra
-            posicao = posicao + 1
-
-        print(letra_acertou)
-
-    print('●▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬●')
-    print('●▬▬▬▬▬▬▬▬▬▬▬ஜ۩ Fim do Game ۩ஜ▬▬▬▬▬▬▬▬▬▬▬▬●')
-    print('●▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬●')
+        chute = chute.strip().upper()
+        if(len(chute) < 2):
+            if(chute in palavra_secreta):
+                posicao = 0
+                for x in palavra_secreta:
+                    if(chute == x):
+                        letra_acertou[posicao] = x
+                    posicao += 1
+            else:
+                palavras_erradas += 1
+            enforcou = palavras_erradas == 6
+            acertou = '_' not in letra_acertou
+            if(acertou == True):
+                print('Você Ganhou!!!')
+            print(letra_acertou)
+            print(f'Errou {palavras_erradas}')
+        else:
+            print('Digitou mais de uma letra')
+            continue
+    print('●▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬●\n●▬▬▬▬▬▬▬▬▬▬▬ஜ۩ Fim do Game ۩ஜ▬▬▬▬▬▬▬▬▬▬▬▬▬●\n●▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬●')
 
 
 if(__name__ == '__main__'):
